@@ -2,6 +2,7 @@ package springboot.restapi.app.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class EmployeeController {
 
     //build create employee REST API
     @PostMapping()
-    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
+    public ResponseEntity<Employee> saveEmployee(@Valid @RequestBody Employee employee){
         return new ResponseEntity<Employee>(employeeService.saveEmployee(employee),HttpStatus.CREATED);
     }
 
@@ -48,7 +49,7 @@ public class EmployeeController {
 
     //build update employee REST API
     @PutMapping("{id}")
-    public ResponseEntity<Employee> updateEmployee(@PathVariable("id") long id, @RequestBody Employee employee){
+    public ResponseEntity<Employee> updateEmployee(@Valid @PathVariable("id") long id, @RequestBody Employee employee){
         return new ResponseEntity<Employee>(employeeService.updateEmployee(employee, id), HttpStatus.OK);
     }
 

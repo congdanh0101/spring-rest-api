@@ -27,7 +27,6 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public List<Employee> getAllEmployees() {
-        // TODO Auto-generated method stub
         return employeeRepository.findAll();
     }
 
@@ -47,7 +46,6 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public Employee updateEmployee(Employee employee, long id) {
-        // TODO Auto-generated method stub
         //check employee exist
         Employee existingEmployee = employeeRepository.findById(id).orElseThrow(
             () -> new ResourceNotFoundException("Employee", "id", id));   
@@ -62,10 +60,7 @@ public class EmployeeServiceImp implements EmployeeService {
 
     @Override
     public void deleteEmployee(long id) {
-        // TODO Auto-generated method stub
-
         //check employee exist
-
         Employee employee = employeeRepository.findById(id).orElseThrow(
             () -> new ResourceNotFoundException("Employee", "Id", id));
 
